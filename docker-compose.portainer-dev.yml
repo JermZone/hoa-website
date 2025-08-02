@@ -1,0 +1,14 @@
+services:
+  web:
+    build:
+      context: /home/jeremy/docker/hoa-website/flask-app
+    ports:
+      - "5000:5000"
+    env_file:
+      - /home/jeremy/docker/hoa-website/.env.dev
+    volumes:
+      - /home/jeremy/docker/hoa-website/flask-app:/app
+    working_dir: /app
+    command: flask run --host=0.0.0.0
+    restart: unless-stopped
+
